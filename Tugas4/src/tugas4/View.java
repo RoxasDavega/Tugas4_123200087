@@ -98,16 +98,16 @@ public class View extends JFrame implements ActionListener{
                 if(getPasswordR() == null || getPasswordR().isEmpty()){
                      throw new IllegalArgumentException("Password is empty");
                 }
-                String query = "SELECT username FROM users WHERE username = '"+getUsernameR()+"'";
+                String query = "SELECT username FROM users WHERE username = '"+getUsernameR()+"'"; //mengambil username dari db
                 connector.statement = connector.koneksi.createStatement();
                 ResultSet result = connector.statement.executeQuery(query);
 
-                if(result.next() == false){    
+                if(result.next() == false){    //jika username tidak ditemukan, maka akan diinsert ke db
                     String queryInsert = "INSERT INTO users(username, password) VALUES ('"+getUsernameR()+"','"+getPasswordR()+"')";
                     connector.statement = connector.koneksi.createStatement();
                     connector.statement.executeUpdate(queryInsert);
                     JOptionPane.showMessageDialog(new JFrame(), "Berhasil Mendaftarkan User");
-                }else{
+                }else{//jika username sudah ada di db
                     JOptionPane.showMessageDialog(new JFrame(), "Username sudah digunakan");
                 }
                 connector.statement.close();
