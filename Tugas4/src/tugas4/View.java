@@ -64,10 +64,10 @@ public class View extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == tombolLogin){ 
             try{
-                if(getUsername() == null || getUsername().isEmpty()){
+                if(getUsername().isBlank() || getUsername().isEmpty()){
                     throw new IllegalArgumentException("Username is empty");
                 }
-                if(getPassword() == null || getPassword().isEmpty()){
+                if(getPassword().isBlank()|| getPassword().isEmpty()){
                      throw new IllegalArgumentException("Password is empty");
                 }
                 //mengambil password dari username
