@@ -21,7 +21,7 @@ public class Connector{
     Statement statement;
     public Connector(){
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             koneksi = (Connection) DriverManager.getConnection(DBurl, DBUsername, DBPassword);
             System.out.println("Koneksi Berhasil");
             
