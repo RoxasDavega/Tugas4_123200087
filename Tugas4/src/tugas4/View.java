@@ -64,10 +64,10 @@ public class View extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == tombolLogin){ 
             try{
-                if(getUsername().isBlank() || getUsername().isEmpty()){
+                if(getUsername().isBlank() || getUsername().isEmpty()){ //error handling username
                     throw new IllegalArgumentException("Username is empty");
                 }
-                if(getPassword().isBlank()|| getPassword().isEmpty()){
+                if(getPassword().isBlank() || getPassword().isEmpty()){ //error handling password
                      throw new IllegalArgumentException("Password is empty");
                 }
                 //mengambil password dari username
@@ -92,10 +92,10 @@ public class View extends JFrame implements ActionListener{
         }
         if(e.getSource() == tombolRegister){
             try{
-                if(getUsernameR() == null || getUsernameR().isEmpty()){
+                if(getUsernameR().isBlank() || getUsernameR().isEmpty()){ //error handling username
                     throw new IllegalArgumentException("Username is empty");
                 }
-                if(getPasswordR() == null || getPasswordR().isEmpty()){
+                if(getPasswordR().isBlank() || getPasswordR().isEmpty()){ //error handling password
                      throw new IllegalArgumentException("Password is empty");
                 }
                 String query = "SELECT username FROM users WHERE username = '"+getUsernameR()+"'"; //mengambil username dari db
